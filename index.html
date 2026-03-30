@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iglesia Cristiana The Good News</title>
+<style>
+:root{
+  --blue:#0b4f94;
+  --blue-2:#1b6fd1;
+  --blue-dark:#081f3d;
+  --gold:#e0b84b;
+  --gold-soft:#ffe08a;
+  --red:#c62828;
+  --red-2:#ef5350;
+  --white:#ffffff;
+  --surface:#ffffff;
+  --surface-2:#f7fbff;
+  --text:#17304f;
+  --muted:#5a7390;
+  --line:rgba(11,79,148,.10);
+  --shadow:0 20px 55px rgba(8,31,61,.12);
+  --shadow-strong:0 28px 70px rgba(8,31,61,.18);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(27,111,209,.09), transparent 24%),
+    radial-gradient(circle at left center, rgba(224,184,75,.10), transparent 18%),
+    linear-gradient(180deg,#f9fcff 0%,#eef5ff 52%,#f9fbff 100%);
+  color:var(--text);
+}
+.container{width:min(1180px,92%);margin:0 auto}
+header{
+  position:sticky;top:0;z-index:999;backdrop-filter:blur(18px);
+  background:linear-gradient(90deg, rgba(8,31,61,.95), rgba(11,79,148,.92), rgba(27,111,209,.88));
+  border-bottom:1px solid rgba(255,255,255,.12);
+  box-shadow:0 12px 32px rgba(8,31,61,.20);
+}
+.header-inner{
+  width:min(1240px,95%);margin:0 auto;display:flex;justify-content:space-between;
+  align-items:center;gap:20px;padding:14px 0;
+}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.logo img{
+  height:58px;width:58px;border-radius:50%;background:white;padding:4px;object-fit:contain;
+  box-shadow:0 8px 22px rgba(255,255,255,.20);
+}
+.logo-text{line-height:1.1}
+.logo-kicker{color:#dbeaff;font-size:.9rem;font-weight:700;display:block;letter-spacing:.02em}
+.logo-title{
+  color:white;font-weight:800;font-size:1.15rem;display:block;
+  background:linear-gradient(90deg,#ffffff,#ffe08a,#ffffff);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shineText 3s linear infinite;
+}
+@keyframes shineText{
+  0%{background-position:0% center}
+  100%{background-position:200% center}
+}
+nav{display:flex;flex-wrap:wrap;gap:18px}
+nav a{
+  color:var(--gold-soft);text-decoration:none;font-weight:700;font-size:.97rem;
+  transition:.22s ease;position:relative;
+}
+nav a::after{
+  content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;border-radius:999px;
+  background:linear-gradient(90deg,var(--gold-soft),white);transition:.22s ease;
+}
+nav a:hover{color:white;transform:translateY(-1px)}
+nav a:hover::after{width:100%}
+.hero{position:relative;width:100%;min-height:82vh;overflow:hidden;background:#081f3d}
+.video-bg{
+  position:absolute;top:50%;left:50%;width:80%;height:auto;transform:translate(-50%,-50%);
+  filter:saturate(1.08) contrast(1.02);
+}
+.overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(8,31,61,.24) 0%, rgba(8,31,61,.48) 46%, rgba(8,31,61,.80) 100%),
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,.13), transparent 25%),
+    radial-gradient(circle at 15% 18%, rgba(224,184,75,.18), transparent 18%),
+    radial-gradient(circle at 85% 18%, rgba(239,83,80,.14), transparent 18%);
+}
+.info-bar{
+  width:min(1180px,92%);margin:-30px auto 0;position:relative;z-index:3;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+}
+.info-pill{
+  background:linear-gradient(135deg,var(--blue-dark),var(--blue));
+  color:white;border-radius:20px;padding:18px 20px;box-shadow:var(--shadow-strong);
+  text-align:center;font-weight:700;border:1px solid rgba(255,255,255,.10);
+}
+.section{padding:80px 0;position:relative}
+.section.alt{background:linear-gradient(180deg, rgba(255,255,255,.46), rgba(236,244,255,.76))}
+.section-head{text-align:center;margin-bottom:34px}
+.section-head h2{
+  margin:0 0 12px;color:var(--gold);
+  font-family:"Brush Script MT","Lucida Handwriting",cursive;
+  font-size:clamp(2.25rem,4vw,3.6rem);
+  text-shadow:0 1px 2px rgba(0,0,0,.14),0 0 12px rgba(224,184,75,.12);
+}
+.section-head p{
+  width:min(860px,95%);margin:0 auto;color:var(--muted);line-height:1.82;font-size:1.06rem;
+}
+.cta-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;
+  border-radius:999px;text-decoration:none;font-weight:800;transition:.2s ease;
+  box-shadow:0 12px 28px rgba(0,0,0,.16);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--red),var(--red-2));color:white;border:none}
+.btn-secondary{background:linear-gradient(135deg,var(--blue-dark),var(--blue-2));color:white;border:none}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
+.grid.two{grid-template-columns:repeat(2,1fr)}
+.card{
+  background:linear-gradient(180deg,var(--surface),var(--surface-2));
+  border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:var(--shadow);
+  position:relative;overflow:hidden;transition:transform .22s ease, box-shadow .22s ease;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-strong)}
+.card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,.52), transparent 38%, rgba(27,111,209,.05));
+  pointer-events:none;
+}
+.card > *{position:relative;z-index:1}
+.icon-badge{
+  width:64px;height:64px;border-radius:18px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--blue-dark),var(--blue-2));color:white;font-size:1.7rem;
+  margin-bottom:18px;box-shadow:0 14px 28px rgba(11,79,148,.20);
+}
+.card h3{margin:0 0 12px;color:#18436f;font-size:1.32rem}
+.card p,.card li{color:var(--muted);line-height:1.8}
+.card ul{margin:0;padding-left:20px}
+.highlight-band{
+  width:min(1180px,92%);margin:10px auto 0;
+  background:linear-gradient(135deg,var(--blue-dark),var(--blue),var(--blue-2));
+  color:white;border-radius:32px;padding:40px 30px;box-shadow:0 28px 60px rgba(8,31,61,.20);
+  border:1px solid rgba(255,255,255,.08);
+}
+.highlight-band h2{
+  margin:0 0 12px;color:var(--gold-soft);font-size:2.1rem;text-align:center;
+  font-family:"Brush Script MT","Lucida Handwriting",cursive;
+}
+.highlight-band p{
+  margin:0 auto 24px;max-width:920px;line-height:1.85;color:rgba(255,255,255,.94);text-align:center;
+}
+.tags{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.tag{
+  padding:12px 16px;border-radius:999px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);font-weight:700;backdrop-filter:blur(6px);
+}
+.contact-card{background:linear-gradient(135deg,var(--blue-dark),#123d70);color:white}
+.contact-card h3{color:var(--gold-soft)}
+.contact-card p,.contact-card li{color:#f7fbff;text-shadow:none}
+.social-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:26px}
+.social-btn{
+  display:flex;align-items:center;gap:12px;padding:14px 22px;border-radius:20px;color:white;
+  text-decoration:none;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.2);transition:.2s ease;
+}
+.social-btn:hover{transform:translateY(-3px)}
+.social-btn img{width:30px;height:30px;border-radius:8px;object-fit:cover}
+.instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
+.facebook{background:linear-gradient(135deg,#1877f2,#0d5ed7)}
+.youtube{background:linear-gradient(135deg,#ff0000,#cc0000)}
+.whatsapp{background:linear-gradient(135deg,#25d366,#128c7e)}
+.footer-cta{
+  padding:76px 24px;text-align:center;background:linear-gradient(135deg,#0c2647,#0b4f94,#1b6fd1);
+  color:white;position:relative;overflow:hidden;
+}
+.footer-cta::before{
+  content:"";position:absolute;width:320px;height:320px;border-radius:50%;top:-110px;right:-110px;
+  background:radial-gradient(circle, rgba(255,255,255,.12), transparent 70%);
+}
+.footer-cta h2{position:relative;margin:0 0 14px;color:var(--gold-soft);font-size:2.45rem}
+.footer-cta p{position:relative;max-width:780px;margin:0 auto 22px;line-height:1.82;color:rgba(255,255,255,.94)}
+footer{background:#092643;color:white;text-align:center;padding:22px 18px;font-size:.95rem;letter-spacing:.01em}
+@media(max-width:1024px){
+  .grid,.grid.two,.info-bar{grid-template-columns:1fr 1fr}
+  .video-bg{width:105%}
+}
+@media(max-width:760px){
+  nav{display:none}
+  .grid,.grid.two,.info-bar{grid-template-columns:1fr}
+  .video-bg{width:150%}
+  .hero{min-height:72vh}
+  .section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#inicio">
+      <img src="logo.jpeg" alt="Logo principal">
+      <div class="logo-text">
+        <span class="logo-kicker">Iglesia Cristiana</span>
+        <span class="logo-title">The Good News</span>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#enlaces">Enlaces</a>
+      <a href="#espacios">Espacios</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#biblia">Biblia</a>
+      <a href="#redes">Redes</a>
+      <a href="#contacto">Contacto</a>
+      <a href="historia-fundadores.html">Historia y Fundadores</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+</section>
+
+<div class="info-bar">
+  <div class="info-pill">Personería Jurídica Especial 2248 de 15 de noviembre de 2011</div>
+  <div class="info-pill">Domingos 10:00 AM · Miércoles 7:00 PM</div>
+  <div class="info-pill">Tumaco, Nariño · Tel. 316 429 00 65</div>
+</div>
+
+<section class="section" style="padding-top:46px;">
+  <div class="container">
+    <div class="section-head">
+      <h2>Transformados para transformar</h2>
+      <p>Una casa de fe en Tumaco, Nariño, nacida para formar, restaurar, equipar y enviar personas que reflejen el amor de Dios y transformen su entorno con el poder del Espíritu Santo.</p>
+    </div>
+    <div class="cta-row">
+      <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+      <a href="#espacios" class="btn btn-secondary">Ver espacios</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="enlaces">
+  <div class="container">
+    <div class="section-head">
+      <h2>Enlaces y accesos rápidos</h2>
+      <p>Aquí puedes dirigir a las personas a los puntos más importantes de la vida de la iglesia: ministerios, servicio, contacto, voluntariado, donaciones y próximos pasos.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="icon-badge">📍</div><h3>Visítanos</h3><p>Conecta fácilmente con nuestra comunidad, conoce horarios, ubicación y todo lo necesario para tu primera visita.</p></article>
+      <article class="card"><div class="icon-badge">🙏</div><h3>Peticiones de oración</h3><p>Un espacio para que las personas compartan sus necesidades y reciban acompañamiento espiritual y cobertura en oración.</p></article>
+      <article class="card"><div class="icon-badge">🤝</div><h3>Voluntarios TGN</h3><p>Descubre cómo servir con tus talentos dentro y fuera de la iglesia, siendo parte activa de la visión.</p></article>
+      <article class="card"><div class="icon-badge">💛</div><h3>Donaciones</h3><p>Apoya la visión y los proyectos de impacto de la iglesia a través de aportes, siembras y ayudas especiales.</p></article>
+      <article class="card"><div class="icon-badge">📲</div><h3>Contáctanos</h3><p>Habla con nuestro equipo para resolver dudas, pedir información o recibir acompañamiento pastoral.</p></article>
+      <article class="card"><div class="icon-badge">📖</div><h3>Recursos</h3><p>Versículos, materiales de apoyo, predicaciones y contenido de edificación para seguir creciendo en la fe.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="mision">
+  <div class="container">
+    <div class="section-head">
+      <h2>Nuestra Misión</h2>
+      <p>Trabajamos para impulsar una visión apostólica viva, práctica y relevante, capaz de impactar generaciones por medio de la unidad, la formación y el uso de herramientas modernas.</p>
+    </div>
+    <div class="grid two">
+      <article class="card"><div class="icon-badge">🎯</div><h3>Propósito Apostólico</h3><p>Promover una visión apostólica, donde se dé a conocer la restauración y proyección de los cinco ministerios (Apóstol, Profeta, Evangelista, Pastor y Maestro), teniendo en cuenta la unidad al interior de ella.</p></article>
+      <article class="card"><div class="icon-badge">📡</div><h3>Herramientas para impactar</h3><p>Usar la tecnología moderna disponible, crear centros educativos, emisoras, canales y/o programas de televisión, programas de asistencia social, orientación para la gente joven, periódicos y revistas.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="vision">
+  <div class="container">
+    <div class="section-head">
+      <h2>Nuestra Visión</h2>
+      <p>Soñamos con una iglesia transformadora, integral y llena del Espíritu Santo, comprometida con anunciar el evangelio y restablecer la iglesia en su diseño apostólico.</p>
+    </div>
+    <div class="grid two">
+      <article class="card"><div class="icon-badge">🔥</div><h3>Transformar vidas</h3><p>Transformar vidas mediante una preparación espiritual de tipo integral dotada de poder y palabra de Dios, derramando el vino nuevo que es el Espíritu Santo al anunciar el evangelio de Jesucristo.</p></article>
+      <article class="card"><div class="icon-badge">🌍</div><h3>Diseño Apostólico</h3><p>Restablecer la Iglesia en su diseño Apostólico, formando personas firmes en la verdad, llenas del Espíritu Santo y comprometidas con el propósito de Dios.</p></article>
+    </div>
+  </div>
+</section>
+
+<div class="highlight-band" id="principios">
+  <h2>Nuestros Principios</h2>
+  <p>La cultura de nuestra casa se sostiene sobre valores espirituales y humanos que moldean nuestra forma de servir, liderar, amar y construir comunidad.</p>
+  <div class="tags">
+    <div class="tag">Amor</div><div class="tag">Honestidad</div><div class="tag">Innovación</div><div class="tag">Trabajo en Equipo</div><div class="tag">Lealtad</div><div class="tag">Generosidad</div><div class="tag">Honra</div>
+  </div>
+</div>
+
+<section class="section alt" id="espacios">
+  <div class="container">
+    <div class="section-head">
+      <h2>Nuestros espacios</h2>
+      <p>Cada espacio de la iglesia está diseñado para acompañar procesos reales, fortalecer la fe y ayudar a cada persona a encontrar su lugar dentro de la visión.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="icon-badge">🧑‍🎓</div><h3>TGN Teens & Young</h3><p>El ministerio juvenil oficial, encargado de llevar el evangelio a adolescentes y jóvenes de una manera creativa, actual y con propósito.</p></article>
+      <article class="card"><div class="icon-badge">👑</div><h3>Mujeres en el Proceso de Dios</h3><p>Un espacio para alcanzar, formar y acompañar a las mujeres mediante conferencias, talleres prácticos y palabra para la vida diaria.</p></article>
+      <article class="card"><div class="icon-badge">🦁</div><h3>Hombres Brave</h3><p>Ministerio enfocado en implantar en el corazón de cada hombre el diseño de Dios para su vida, fortaleciendo liderazgo y carácter.</p></article>
+      <article class="card"><div class="icon-badge">🏠</div><h3>La Familia con Dios</h3><p>Un ministerio para hogares, matrimonios y noviazgos, construido sobre principios bíblicos y acompañamiento conforme a la palabra de Dios.</p></article>
+      <article class="card"><div class="icon-badge">🤝</div><h3>Fundación Jediael</h3><p>El área social de la iglesia, donde servimos a los más necesitados y expresamos el amor de Dios con acciones concretas.</p></article>
+      <article class="card"><div class="icon-badge">🙌</div><h3>Voluntarios TGN</h3><p>El ministerio de apoyo principal que permite servir a Dios y a las personas desde los talentos, tanto dentro como fuera de la iglesia.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="eventos">
+  <div class="container">
+    <div class="section-head">
+      <h2>Nuestros eventos</h2>
+      <p>Eventos diseñados para impartir, equipar, activar y reunir a la iglesia alrededor de tiempos especiales de palabra, ministración y crecimiento espiritual.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="icon-badge">🍷</div><h3>Cumbre Apostólica y Profética Vino Nuevo</h3><p>La convocatoria anual a todo el cuerpo de Cristo para hablar y desatar la agenda de Dios sobre la tierra, durante tres días de conferencias y ministraciones.</p></article>
+      <article class="card"><div class="icon-badge">🌸</div><h3>Congreso Profético Mujeres en el Proceso de Dios</h3><p>Un tiempo de refrigerio, restauración y equipamiento espiritual para mujeres, donde el Espíritu Santo ministra con profundidad y dirección.</p></article>
+      <article class="card"><div class="icon-badge">🎉</div><h3>Faith’s Party</h3><p>Una noche de fiesta, conferencia, música y mucho color, diseñada para convocar a los jóvenes y anunciar el evangelio de forma innovadora.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="biblia">
+  <div class="container">
+    <div class="section-head">
+      <h2>Buscador de versículos</h2>
+      <p>Busca referencias bíblicas en línea y consulta fácilmente la versión Dios Habla Hoy para profundizar en la palabra de Dios.</p>
+    </div>
+    <div class="grid two">
+      <article class="card">
+        <div class="icon-badge">📖</div>
+        <h3>Busca un versículo</h3>
+        <p>Escribe una referencia como <strong>Juan 3:16</strong>, <strong>Salmos 23</strong> o <strong>Romanos 8:28</strong> y abre una búsqueda rápida en línea.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+          <input id="verseInput" type="text" placeholder="Ejemplo: Juan 3:16" style="flex:1 1 260px;padding:14px 16px;border-radius:14px;border:1px solid rgba(11,79,148,.14);font-size:1rem;outline:none;">
+          <button onclick="searchVerse()" class="btn btn-primary" style="border:none;">Buscar</button>
+        </div>
+        <div id="verseResults" style="margin-top:16px;padding:16px 18px;border-radius:16px;background:#f4f9ff;border:1px solid rgba(11,79,148,.08);color:#4d6784;line-height:1.7;">Aquí aparecerá una ayuda rápida para abrir la búsqueda del versículo que deseas consultar.</div>
+      </article>
+      <article class="card">
+        <div class="icon-badge">🌐</div>
+        <h3>Biblia en línea DHH</h3>
+        <p>También puedes ingresar directamente a una Biblia en línea en versión <strong>Dios Habla Hoy</strong> para leer capítulos completos y consultar diferentes pasajes.</p>
+        <div style="margin-top:18px;display:flex;justify-content:flex-start;">
+          <a class="btn btn-primary" href="https://www.biblegateway.com/versions/Dios-Habla-Hoy-DHH-Biblia/" target="_blank" rel="noopener noreferrer">Abrir Biblia DHH</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="redes">
+  <div class="container">
+    <div class="section-head">
+      <h2>Síguenos en nuestras redes</h2>
+      <p>Conéctate con nosotros a través de nuestras redes sociales y mantente al día con todo lo que Dios está haciendo en The Good News.</p>
+    </div>
+    <div class="social-row">
+      <a href="https://www.instagram.com/iglesiathegoodnews?igsh=dW1qdm04aDltN2x0&utm_source=qr" target="_blank" class="social-btn instagram"><img src="instagram.jpg" alt="Instagram">Instagram</a>
+      <a href="https://www.facebook.com/share/1HC4Sb3ayc/?mibextid=wwXIfr" target="_blank" class="social-btn facebook"><img src="facebook.jpg" alt="Facebook">Facebook</a>
+      <a href="https://youtube.com/@iglesiacristianathegoodnew4971?si=DIA9yQ4FshHwXvyU" target="_blank" class="social-btn youtube"><img src="youtube.png" alt="YouTube">YouTube</a>
+      <a href="https://w.app/mj9vqr" target="_blank" class="social-btn whatsapp"><img src="whatsapp.jpeg" alt="WhatsApp">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="contacto">
+  <div class="container">
+    <div class="section-head">
+      <h2>Contacto y donaciones</h2>
+      <p>Conecta con nosotros, haz tu primera visita, solicita información o apoya la visión de la iglesia a través de tus donaciones.</p>
+    </div>
+    <div class="grid two">
+      <article class="card contact-card">
+        <div class="icon-badge" style="background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:#10345d;">💛</div>
+        <h3>Donaciones</h3>
+        <p><strong>Banco:</strong> Bancolombia<br><strong>Tipo de cuenta:</strong> Ahorros<br><strong>No. cuenta:</strong> 89477497943</p>
+        <p><strong>Email:</strong> iglesiacristianathegoodnews@gmail.com<br><strong>Teléfono:</strong> 316 429 00 65</p>
+      </article>
+      <article class="card">
+        <div class="icon-badge">📍</div>
+        <h3>Habla con nosotros</h3>
+        <p>Escríbenos para conocer horarios, ubicación, ministerios, procesos de voluntariado o cualquier inquietud relacionada con la iglesia.</p>
+        <p><strong>Teléfono:</strong> 316 429 00 65<br><strong>Correo:</strong> iglesiacristianathegoodnews@gmail.com</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <h2>Transformados para transformar</h2>
+  <p>Creemos en una iglesia que no solo reúne personas, sino que restaura, forma, equipa y envía vidas transformadas para impactar su generación con el amor, la palabra y el poder de Dios.</p>
+  <a href="mailto:iglesiacristianathegoodnews@gmail.com" class="btn btn-primary">Escríbenos ahora</a>
+</section>
+
+<footer>
+  IGLESIA CRISTIANA THE GOOD NEWS · Tumaco, Nariño · Personería Jurídica Especial 2248 de 15 de noviembre de 2011
+</footer>
+
+<script>
+function searchVerse(){
+  const input=document.getElementById('verseInput').value.trim();
+  const result=document.getElementById('verseResults');
+  if(!input){
+    result.innerHTML='Por favor escribe una referencia bíblica. Ejemplo: <strong>Juan 3:16</strong>.';
+    return;
+  }
+  const query=encodeURIComponent(input+' Dios Habla Hoy');
+  result.innerHTML='Abriendo búsqueda para: <strong>'+input+'</strong>...';
+  window.open('https://www.google.com/search?q='+query,'_blank');
+}
+</script>
+
+</body>
+</html>
